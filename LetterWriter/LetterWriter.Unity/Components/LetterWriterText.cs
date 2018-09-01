@@ -348,11 +348,10 @@ namespace LetterWriter.Unity.Components
         protected override void OnPopulateMesh(Mesh m)
         {
             var vertexHelper = new VertexHelper(m);
-#elif UNITY_5_3
+#elif UNITY_5_3_OR_NEWER
         protected override void OnPopulateMesh(VertexHelper vertexHelper)
         {
 #endif
-#if UNITY_5_2 || UNITY_5_3
             if (this.Font == null)
                 return;
 
@@ -501,7 +500,6 @@ namespace LetterWriter.Unity.Components
             vertexHelper.FillMesh(m);
 #endif
         }
-#endif
 
 #if UNITY_EDITOR
         protected override void Reset()
@@ -563,7 +561,7 @@ namespace LetterWriter.Unity.Components
         public float flexibleHeight { get { return -1; } }
         public int layoutPriority { get { return 0; } }
 
-#endregion
+        #endregion
 
         /// <summary>
         /// 指定した高さに文章が収まる最小の幅を算出します。
